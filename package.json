@@ -1,0 +1,10 @@
+{
+  "name": "game",
+  "uuid": "10a20471-449f-43c0-8cc3-bc03092ce281",
+  "creator": {
+    "version": "3.8.0"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}
