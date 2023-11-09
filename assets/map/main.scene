@@ -485,7 +485,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 381.838,
+      "y": 244.145,
       "z": 0
     },
     "_lrot": {
@@ -757,7 +757,7 @@
     "component": "",
     "_componentId": "d3681Hl7nRMBqpPBWWvFjXT",
     "handler": "move",
-    "customEventData": "1"
+    "customEventData": ""
   },
   {
     "__type__": "d3681Hl7nRMBqpPBWWvFjXT",
@@ -806,7 +806,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 300.521,
+      "y": 162.828,
       "z": 0
     },
     "_lrot": {

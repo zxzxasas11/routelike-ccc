@@ -4,12 +4,12 @@ const { ccclass, property } = _decorator;
 @ccclass('WebsocketManager')
 export class WebsocketManager extends Component {
 
-    socket 
+    socket
 
     url = "ws://localhost:8989/ws"
 
-    public callback :Function
-    
+    public callback: Function
+
     /**
      *
      */
@@ -19,9 +19,13 @@ export class WebsocketManager extends Component {
         this.socket.onopen = function (event) {
             console.log("WebSocket连接已建立");
         };
-        this.socket.onmessage =  (event)=> {
+        this.socket.onmessage = (event) => {
             console.log("收到WebSocket消息：" + event.data);
-            this.callback&& this.callback(JSON.parse(event.data))
+            let data = JSON.parse(event.data)
+            if (data.path && data.path === "move") {
+                this.callback && this.callback(JSON.parse(event.data))
+            }
+            // this.callback && this.callback(JSON.parse(event.data))
         };
         this.socket.onclose = function (event) {
             console.log("WebSocket连接已关闭");
@@ -31,16 +35,16 @@ export class WebsocketManager extends Component {
         };
     }
 
-    send(route:string,params:Object){
+    send(route: string, params: Object) {
         console.log("开始发送")
-        this.socket.send(JSON.stringify({route,params}))
+        this.socket.send(JSON.stringify({ route, params }))
     }
     start() {
 
     }
 
     update(deltaTime: number) {
-        
+
     }
 }
 

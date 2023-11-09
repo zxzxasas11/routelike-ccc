@@ -6,10 +6,10 @@ const { ccclass, property } = _decorator;
 export class main extends WebsocketManager {
 
     @property(EditBox)
-    UsernameNode :EditBox
+    UsernameNode: EditBox
 
     @property(EditBox)
-    Password :EditBox
+    Password: EditBox
 
     /**
      *
@@ -20,11 +20,12 @@ export class main extends WebsocketManager {
     }
 
 
-    message(e){
-        if(e.success){
+    message(e) {
+        if (e.success) {
             console.log("登录成功")
-            sys.localStorage.setItem("username",this.UsernameNode.string)
-            sys.localStorage.setItem("password",this.Password.string)
+            sys.localStorage.setItem("username", this.UsernameNode.string)
+            sys.localStorage.setItem("password", this.Password.string)
+            sys.localStorage.setItem("uid", e.uid)
             setTimeout(() => {
                 director.loadScene("main")
             }, 1000);
@@ -33,22 +34,22 @@ export class main extends WebsocketManager {
     /**
      * 登录方法
      */
-    login(){
+    login() {
         console.log("main")
         const username = this.UsernameNode.string
-        const password =this.Password.string
-        console.log(username,password)
+        const password = this.Password.string
+        console.log(username, password)
 
-        this.send("/GameService/Login",{username,password})
-        
+        this.send("/GameService/Login", { username, password })
+
     }
     start() {
         console.log(1)
-        
+
     }
 
     update(deltaTime: number) {
-        
+
     }
 }
 
